@@ -2,9 +2,9 @@ let sectionHours = document.getElementById('hours');
 let sectionMinutes = document.getElementById('minutes');
 let sectionSeconds = document.getElementById('seconds');
 let sectionAmPm = document.getElementById('ampm');
-let hr = document.getElementById('hr');
-let mn = document.getElementById('mn');
-let sc = document.getElementById('sc');
+let arrowHours = document.getElementById('hr');
+let arrowMinutes = document.getElementById('mn');
+let arrowSeconds = document.getElementById('sc');
 
 setInterval(() => {
     let hours = new Date().getHours();
@@ -20,4 +20,8 @@ setInterval(() => {
     sectionMinutes.innerHTML = minutes < 10 ? `0${minutes}` : minutes;
     sectionSeconds.innerHTML = seconds < 10 ? `0${seconds}` : seconds;
     sectionAmPm.innerHTML = hours >= 12 ? 'PM' : 'AM';
+
+    arrowHours.style.transform = `rotateZ(${hours * 30}deg)`;
+    arrowMinutes.style.transform = `rotateZ(${minutes * 6}deg)`;
+    arrowSeconds.style.transform = `rotateZ(${seconds * 6}deg)`;
 });
